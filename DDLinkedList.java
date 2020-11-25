@@ -2,17 +2,17 @@
  * This Class implements the state and behaviour of basic doubly linked list infrastructure
  * @author Dr. Moshe Deutsch
  */
-public class DDLinkedList
+public class DDLinkedList <T>
 {
-	private ListElement head, tail;
+	private ListElement <T> head, tail;
 	
 	/**
      * Add an element to the head of the list
      * @param val the integer value to be added to the head of the list
      */
-	protected void addToHead(int val)
+	protected void addToHead(T val)
 	{
-		ListElement newElm = new ListElement(val, head);
+		ListElement <T> newElm = new ListElement<T>(val, head);
 		
 		if(head != null)
 			head.setPrev(newElm);
@@ -27,9 +27,9 @@ public class DDLinkedList
      * Add an element to the tail of the list
      * @param val the integer value to be added to the tail of the list
      */
-	protected void addToTail(int val)
+	protected void addToTail(T val)
 	{
-		ListElement newElm = new ListElement(val, null, tail);
+		ListElement <T> newElm = new ListElement<T>(val, null, tail);
 		
 		if(tail != null)
 			tail.setNext(newElm);
@@ -44,12 +44,12 @@ public class DDLinkedList
      * Removes an element from the head of the list
      * @return the value of the element removed, or -1 if the list is empty. 
      */
-	protected int removeFromHead()
+	protected T removeFromHead()
 	{
 		if(head == null)
 			return -1;
 		
-		int ret = head.getVal();
+		T ret = head.getVal();
 		head = head.getNext();
 		
 		if(head == null)
@@ -64,12 +64,12 @@ public class DDLinkedList
      * Removes an element from the tail of the list
      * @return the value of the element removed, or -1 if the list is empty. 
      */
-	protected int removeFromTail()
+	protected T removeFromTail()
 	{
 		if(tail == null)
 			return -1;
 		
-		int ret = tail.getVal();
+		T ret = tail.getVal();
 		tail = tail.getPrev();
 		
 		if(tail == null)
@@ -86,7 +86,7 @@ public class DDLinkedList
      * @param beforeElm the existing element to add newElm before it.
      * If beforeElm == NULL, means add after tail
      */
-	protected void addElm(ListElement newElm, ListElement beforeElm)
+	protected void addElm(ListElement <T> newElm, ListElement <T> beforeElm)
 	{
 		//Covering all Extreme cases first!
 		
@@ -163,7 +163,7 @@ public class DDLinkedList
  * only by its methods!
  * @author Dr. Moshe Deutsch
  */
-class ListElement
+class ListElement <T>
 {
 	private T val;
 	private ListElement <T> next;
