@@ -57,12 +57,11 @@ public class Manager
 				break;
 
 			case 3:
-				System.out.println("Queue Contents:");
-				q.display();
+				System.out.println("Queue Contents:"+q);
 				break;
 
 			case 4:
-				System.out.println("Please Enter a number:");
+				System.out.println("Please Enter a number:";
 				st.push(sc.nextInt());
 				break;
 
@@ -71,8 +70,8 @@ public class Manager
 				break;
 
 			case 6:
-				System.out.println("Stack Contents:");
-				st.display();
+				System.out.println("Stack Contents:"st);
+				break;
 
 			case 7:
 				break;
