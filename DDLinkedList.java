@@ -128,24 +128,18 @@ public class DDLinkedList <T>
 		
 		beforeElm.setPrev(newElm);
 	}
-	
+
 	/**
-     * Display ALL the elements in the list. Notice the use of the reference to
-     * tmp to the ListElement in the call to System.out.println. Since this call
-     * expects a String argument, if it gets a reference object (rather than a
-     * primitive type), it automatically invokes its "toString" method.
-     */
-	public void display()
+	 * override toString method
+	 * @return a string with ALL string representation of its members
+	 */
+	public String toString()
 	{
-		ListElement tmp; 
-		
-		for(tmp = head; tmp != null; tmp = tmp.getNext())
-			System.out.print(tmp + " ");
-		
-		//Moving the cursor to next line (println of empty String)
-		System.out.println("");
+		String list;
+		for (ListElement i: DDLinkedList)
+			list = list+""+ i.toString();
+		retrun list;
 	}
-	
 	/**
      * Indicates whether or not the list is empty.
      * @return true if the list is empty; otherwise, false. 

@@ -6,8 +6,8 @@ import java.util.*;
  */
 public class Manager
 {
-	private Stack st;
-	private Queue q;
+	private Stack <Integer> st;
+	private Queue <Integer> q;
 	
 	//Initializing an array on definition.
 	//This implicitly performs new on the array to allocate space for the array
@@ -26,7 +26,7 @@ public class Manager
 		
 		displayMenu();
 	}
-	
+
 	/**
 	 * displays and handles the user choices interactively.
 	 */
@@ -34,16 +34,16 @@ public class Manager
 	{
 		Scanner sc = new Scanner(System.in);
 		int input = 1;
-		
+
 		while(input != menuOptions.length)
 		{
 			System.out.println("Please Enter your choice:");
-			
+
 			//"For Each" Loop - see:
 			//http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 			for(String str : menuOptions)
 				System.out.println(str);
-			
+
 			input = sc.nextInt();
 			switch(input)
 			{
@@ -51,32 +51,32 @@ public class Manager
 				System.out.println("Please Enter a number:");
 				q.enqueue(sc.nextInt());
 				break;
-				
+
 			case 2:
 				System.out.println("Dequeued: " + q.dequeue());
 				break;
-				
+
 			case 3:
 				System.out.println("Queue Contents:");
 				q.display();
 				break;
-				
+
 			case 4:
 				System.out.println("Please Enter a number:");
 				st.push(sc.nextInt());
 				break;
-				
+
 			case 5:
 				System.out.println("Popped: " + st.pop());
 				break;
-				
+
 			case 6:
 				System.out.println("Stack Contents:");
 				st.display();
-				
+
 			case 7:
 				break;
-				
+
 			default:
 				System.out.println(input + " is an invalid choice! Please try again.");
 			}
