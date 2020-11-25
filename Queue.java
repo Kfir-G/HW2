@@ -9,7 +9,7 @@ public class Queue extends DDLinkedList
      * enqueue an element to the Back of the Queue.
      * @param val the integer value to be added to the Back of the Queue.
      */
-	public void enqueue(int val)
+	public void enqueue(T val)
 	{
 		addToTail(val);
 	}

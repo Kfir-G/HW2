@@ -9,7 +9,7 @@ public class Stack extends DDLinkedList
      * push an element to the top of the Stack.
      * @param val the integer value to be added to the top of the Stack.
      */
-	public void push(int val)
+	public void push(T val)
 	{
 		addToHead(val);
 	}
