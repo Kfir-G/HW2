@@ -165,9 +165,9 @@ public class DDLinkedList
  */
 class ListElement
 {
-	private int val;
-	private ListElement next;
-	private ListElement prev;
+	private T val;
+	private ListElement <T> next;
+	private ListElement <T> prev;
 	
 	/**
 	 * ListElement no-argument constructor, initializes val data to 0 and 
@@ -182,7 +182,7 @@ class ListElement
 	 * ListElement constructor
 	 * @param val the value of to be held by the ListElement
 	 */
-	public ListElement(int val)
+	public ListElement(T val)
 	{
 		this(val, null, null); //invokes constructor with 3 arguments
 	}
@@ -192,7 +192,7 @@ class ListElement
 	 * @param val the value of to be held by the ListElement
 	 * @param next the reference to the elements next ListElement
 	 */
-	public ListElement(int val, ListElement next)
+	public ListElement(T val, ListElement <T> next)
 	{
 		this(val, next, null);  //invokes constructor with 3 arguments
 	}
@@ -203,7 +203,7 @@ class ListElement
 	 * @param next the reference to the element's next ListElement
 	 * @param prev the reference to the element's previous ListElement
 	 */
-	public ListElement(int val, ListElement next, ListElement prev)
+	public ListElement( T val, ListElement <T> next, ListElement <T> prev)
 	{
 		this.val = val;
 		this.next = next;
@@ -214,7 +214,7 @@ class ListElement
 	 * get method for the internal data value.
 	 * @return the internal data value heald by this ListElement.
 	 */
-	public int getVal()
+	public T getVal()
 	{
 
 		return val;
@@ -243,7 +243,7 @@ class ListElement
 	 * @param next the new reference to be updated as the next ListElement
 	 * referenced from this element.
 	 */
-	public void setNext(ListElement next)
+	public void setNext(ListElement <T> next)
 	{
 		this.next = next;
 	}
@@ -253,7 +253,7 @@ class ListElement
 	 * @param prev the new reference to be updated as the previous ListElement
 	 * referenced from this element.
 	 */
-	public void setPrev(ListElement prev)
+	public void setPrev(ListElement <T> prev)
 	{
 		this.prev = prev;
 	}
