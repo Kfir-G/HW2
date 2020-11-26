@@ -136,20 +136,13 @@ public class DDLinkedList <T>
 	@Override
 	public String toString()
 	{
-		if(head == null)
-			return "There is no elements in the list";
 		String list = "(";
-		for(ListElement<T> temp = head ; temp != null ; temp.getNext())
-		{
+		for(ListElement<T> temp = head ; temp != null ; temp = temp.getNext())
 			list += temp.toString() + " ";
-		}
+		if(list.endsWith(" "))
+			list = list.substring(0,list.length()-1);
 		list += ")";
 		return list;
-		// for ( T items: temp)
-		// {
-		// 	list = list + " "+ items;
-		// }
-		// return list;
 	}
 	/**
      * Indicates whether or not the list is empty.
