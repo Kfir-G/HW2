@@ -88,9 +88,10 @@ public class Manager
 	 * This would invoke its constructor, which then invokes the displayMenu
 	 * to handle the user choices.
 	 */
-	public static void main(java.lang.String[] args)
+	public static void main (String[] args)
 	{
 		Manager mngr = new Manager();
+		mngr.displayMenu();
 	}
 }
 	
