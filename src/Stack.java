@@ -3,7 +3,7 @@
  * It inherits from DDLinkedList class.
  * @author Dr. Moshe Deutsch
  */
-public class Stack extends DDLinkedList
+public class Stack<T> extends DDLinkedList
 {
 	/**
      * push an element to the top of the Stack.
@@ -19,12 +19,12 @@ public class Stack extends DDLinkedList
      * @return the value of the element popped from the top of the Stack. If the
      * Stack is empty, returns -1.
      */
-	public int pop()
+	public T pop()
 	{
 		if(isEmpty())
 		{
 			System.out.println("pop::Stack is Empty!");
-			return -1;
+			return null;
 		}
 		
 		return removeFromHead();

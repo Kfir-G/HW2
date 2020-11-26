@@ -3,7 +3,7 @@
  * It inherits from DDLinkedList class.
  * @author Dr. Moshe Deutsch
  */
-public class Queue extends DDLinkedList
+public class Queue <T> extends DDLinkedList
 {
 	/**
      * enqueue an element to the Back of the Queue.
@@ -19,12 +19,12 @@ public class Queue extends DDLinkedList
      * @return the value of the element dequeued from the Front of the Queue. 
      * If the Queue is empty, returns -1.
      */
-	public int dequeue()
+	public T dequeue()
 	{
 		if(isEmpty())
 		{
 			System.out.println("dequeue::Queue is Empty!");
-			return -1;
+			return null;
 		}
 		
 		return removeFromHead();

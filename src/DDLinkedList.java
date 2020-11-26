@@ -47,7 +47,7 @@ public class DDLinkedList <T>
 	protected T removeFromHead()
 	{
 		if(head == null)
-			return -1;
+			return null;
 		
 		T ret = head.getVal();
 		head = head.getNext();
@@ -67,7 +67,7 @@ public class DDLinkedList <T>
 	protected T removeFromTail()
 	{
 		if(tail == null)
-			return -1;
+			return null;
 		
 		T ret = tail.getVal();
 		tail = tail.getPrev();
@@ -136,9 +136,9 @@ public class DDLinkedList <T>
 	public String toString()
 	{
 		String list;
-		for (ListElement i: DDLinkedList)
-			list = list+""+ i.toString();
-		retrun list;
+		for (T i: tail)
+			list = list+ " " + i;
+		return list;
 	}
 	/**
      * Indicates whether or not the list is empty.
@@ -169,7 +169,7 @@ class ListElement <T>
 	 */
 	public ListElement()
 	{
-		this(0, null, null); //invokes constructor with 3 arguments
+		this(null, null, null); //invokes constructor with 3 arguments
 	}
 	
 	/**
@@ -210,7 +210,6 @@ class ListElement <T>
 	 */
 	public T getVal()
 	{
-
 		return val;
 	}
 	
@@ -265,7 +264,5 @@ class ListElement <T>
 	public String toString()
 	{
 		return "" + val;
-		//could also use the Integer Wrapper-Class, like so: 
-		//Integer.toString(val);
 	}
 }

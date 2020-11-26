@@ -1,14 +1,15 @@
 import java.util.*;
-
+import java.lang.*;
+import java.util.Scanner;
 /**
  * This Class implements the state and behaviour of the Manager
  * @author Dr. Moshe Deutsch
  */
 public class Manager
 {
-	private Stack <Integer> st;
-	private Queue <Integer> q;
-	
+	private Queue<Integer> q;
+	private Stack<Integer> st;
+
 	//Initializing an array on definition.
 	//This implicitly performs new on the array to allocate space for the array
 	// and new for every String object whose reference is held within the 
@@ -57,11 +58,11 @@ public class Manager
 				break;
 
 			case 3:
-				System.out.println("Queue Contents:"+q);
+				System.out.println("Queue Contents:" + q);
 				break;
 
 			case 4:
-				System.out.println("Please Enter a number:";
+				System.out.println("Please Enter a number:");
 				st.push(sc.nextInt());
 				break;
 
@@ -70,7 +71,7 @@ public class Manager
 				break;
 
 			case 6:
-				System.out.println("Stack Contents:"st);
+				System.out.println("Stack Contents:" + st);
 				break;
 
 			case 7:
@@ -87,7 +88,7 @@ public class Manager
 	 * This would invoke its constructor, which then invokes the displayMenu
 	 * to handle the user choices.
 	 */
-	public static void main(String[] args)
+	public static void main(java.lang.String[] args)
 	{
 		Manager mngr = new Manager();
 	}
