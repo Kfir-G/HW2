@@ -48,15 +48,15 @@ public class DDLinkedList <T>
 	{
 		if(head == null)
 			return null;
-		
+
 		T ret = head.getVal();
 		head = head.getNext();
-		
+
 		if(head == null)
 			tail = head;
 		else
 			head.setPrev(null);
-		
+
 		return ret;
 	}
 	
@@ -133,11 +133,12 @@ public class DDLinkedList <T>
 	 * override toString method
 	 * @return a string with ALL string representation of its members
 	 */
+	@Override
 	public String toString()
 	{
 		String list;
-		for (T i: tail)
-			list = list+ " " + i;
+		for ( T i: tail) 
+			list = list + " "+ i;
 		return list;
 	}
 	/**

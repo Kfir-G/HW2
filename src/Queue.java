@@ -3,7 +3,7 @@
  * It inherits from DDLinkedList class.
  * @author Dr. Moshe Deutsch
  */
-public class Queue <T> extends DDLinkedList
+public class Queue <T> extends DDLinkedList <T>
 {
 	/**
      * enqueue an element to the Back of the Queue.

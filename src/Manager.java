@@ -91,6 +91,7 @@ public class Manager
 	public static void main(java.lang.String[] args)
 	{
 		Manager mngr = new Manager();
+		mngr.displayMenu();
 	}
 }
 	

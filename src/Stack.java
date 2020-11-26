@@ -3,7 +3,7 @@
  * It inherits from DDLinkedList class.
  * @author Dr. Moshe Deutsch
  */
-public class Stack<T> extends DDLinkedList
+public class Stack<T> extends DDLinkedList <T>
 {
 	/**
      * push an element to the top of the Stack.
