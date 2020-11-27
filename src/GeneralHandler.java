@@ -18,8 +18,8 @@ public abstract class GeneralHandler implements IntQueueStackHandler
      */
     public GeneralHandler(Stack<Integer> intSt)
     {
-        this. intSt = intSt;
+        this.intSt = intSt;
     }
 
-    public void processRequest();
+    public  abstract void processRequest();
 }
