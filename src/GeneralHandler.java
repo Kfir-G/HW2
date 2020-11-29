@@ -21,5 +21,5 @@ public abstract class GeneralHandler implements IntQueueStackHandler
         this.intSt = intSt;
     }
 
-    public  abstract void processRequest();
+    public abstract void processRequest();
 }
