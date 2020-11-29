@@ -23,10 +23,8 @@ public class DequeuePopHandler extends GeneralHandler
 
     public void processRequest()
     {
-        String inputMassg = "Please enter a number to", input;
-        if(intQ !=null)
-            input = JOptionPane.showInputDialog(inputMassg+ "Enqueue the Queue");
-        else
-            input = JOptionPane.showInputDialog(inputMassg+ "Push the Stack");
+        if(intQ != null && intQ.isEmpty())
+
+
     }
 }

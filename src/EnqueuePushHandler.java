@@ -31,24 +31,17 @@ public class EnqueuePushHandler extends GeneralHandler
      * are performed via showInputDialog method of JOptionPane Java swing class (input dialog GUI).
      */
     public void processRequest() {
-        JFrame errorMssgBox = new JFrame();
-        String inputMassg = "Please enter a number to ", errorInputMassg = "is Not numaric, operation aborted!";
-        int inputNum = -1; //default val
-        Boolean check = true;
+        int inputNum =-1;
 
-        while (check)
-        {
-            try {
-                inputNum = (Integer.parseInt(JOptionPane.showInputDialog(inputMassg + "%s", (intQ != null ? "Enqueue the Queue" : "Push the Stack"))));
-            } catch (NullPointerException exN) {
-                return; //EXIT- user push Cancel
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, inputNum + " " + errorInputMassg);
-                check = false;
-            }
-            check ^= true; //XOR
+        try {
+            inputNum = (Integer.parseInt(JOptionPane.showInputDialog("Please enter a number to " + "%s", (intQ != null ? "Enqueue the Queue" : "Push the Stack"))));
         }
-
+        catch (NullPointerException exN) {
+            return; //EXIT- user push Cancel
+        }
+        catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, inputNum + " " + "is Not numaric, operation aborted!");
+        }
 
         if(intQ !=null)
             intQ.enqueue(inputNum);
