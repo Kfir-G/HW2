@@ -21,9 +21,14 @@ public class DisplayHandler extends GeneralHandler
         super(intSt);
     }
 
-
+    /**
+     * This method implements the abstract method "processRequest", inherited from GeneralHandler class. This method
+     * display the contents of the Queue/Stack respectively - present it on a GUI message dialog, using
+     * showMessageDialog method of JOptionPane Java swing class. Get the contents of the Queue/Stack, simply by using
+     * the corresponding toString method of Queue/Stack class (recall: they got it for free from DDLinkedList class.
+     */
     public void processRequest()
     {
-
+        JOptionPane.showMessageDialog(null,String.format("%s contents is: %s" ,(intQ!=null? "Queue": "Stack") ,(intQ!=null? intQ.toString():intSt.toString())));
     }
 }
