@@ -14,11 +14,11 @@ public class DequeuePopHandler extends GeneralHandler
     /**
      * EnqueuePushHandler overloaded constructor, initializes a new EnqueuePushHandler with a reference to a Stack of
      * Integers (the Queue reference will be initialized to null by default) - passed via the super constructor.
-     * @param intSk reference to the Stack of Integers
+     * @param intSt reference to the Stack of Integers
      */
-    public DequeuePopHandler(Stack<Integer> intSk)
+    public DequeuePopHandler(Stack<Integer> intSt)
     {
-        super(intSk);
+        super(intSt);
     }
 
     /**
