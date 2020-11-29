@@ -1,4 +1,5 @@
 import javax.swing.*;
+import  java.awt.*;
 
 public class EnqueuePushHandler extends GeneralHandler
 {
@@ -23,24 +24,37 @@ public class EnqueuePushHandler extends GeneralHandler
     }
 
     /**
-     *
+     *This method implements the abstact method "processRequest", inherited from GeneralHandler class.
+     * This method acquires input from the user via showInputDialog method of JOptionPane Java swing class
+     * (input dialog GUI). validate the input and if valid puts it in the Queue/Stack respectively. ALL user messages
+     * are performed via showMessageDialog method of JOptionPane Java swing class (message dialog GUI), and ALL inputs
+     * are performed via showInputDialog method of JOptionPane Java swing class (input dialog GUI).
      */
-    public void processRequest()
-    {
+    public void processRequest() {
         JFrame errorMssgBox = new JFrame();
         String inputMassg = "Please enter a number to ", errorInputMassg = "is Not numaric, operation aborted!";
-        int inputNum=-1; //default val
+        int inputNum = -1; //default val
+        Boolean check = true;
 
-        while(true){
-        try {
-            if (intQ != null)
-                inputNum = (Integer.parseInt(JOptionPane.showInputDialog(inputMassg + "Enqueue the Queue")));
-            else
-                inputNum = (Integer.parseInt(JOptionPane.showInputDialog(inputMassg + "Push the Stack")));
-        }
-        catch (NumberFormatException ex)
+        while (check)
         {
-            JOptionPane.showMessageDialog(errorMssgBox,inputNum +" " +errorInputMassg);
-        } break;}
+            try {
+                inputNum = (Integer.parseInt(JOptionPane.showInputDialog(inputMassg + "%s", (intQ != null ? "Enqueue the Queue" : "Push the Stack"))));
+            } catch (NullPointerException exN) {
+                return; //EXIT- user push Cancel
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, inputNum + " " + errorInputMassg);
+                check = false;
+            }
+            check ^= true; //XOR
+        }
+
+
+        if(intQ !=null)
+            intQ.enqueue(inputNum);
+        else
+            intSt.push(inputNum);
+
+        JOptionPane.showInputDialog("%s operation of "+inputNum+"successfully!",(intQ!=null ? "Enqueue":"Push"));
     }
 }
