@@ -36,6 +36,7 @@ public class DequeuePopHandler extends GeneralHandler
                JOptionPane.showMessageDialog(null, "Queue is Empty!!");
                return;  //EXIT
            }
+           intQ.dequeue();
            JOptionPane.showMessageDialog(null,"Value Dequeue from Queue is:"+intQ.dequeue());
        }
        else{    //for Stack
@@ -43,6 +44,7 @@ public class DequeuePopHandler extends GeneralHandler
                JOptionPane.showMessageDialog(null, "Stack is Empty!!");
                return;  //EXIT
            }
+           intSt.pop();
            JOptionPane.showMessageDialog(null,"Value Pop from Stack is:"+intSt.pop());
        }
     }
