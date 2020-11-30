@@ -28,22 +28,16 @@ public class DequeuePopHandler extends GeneralHandler
      * showInputDialog method of JOptionPane Java swing class (input dialog GUI). Likewise, ALL user messages are
      * performed via showMessageDialog method of JOptionPane Java swing class (message dialog GUI).
      */
-    public void processRequest() //how to do it elegant? @omer?
+    public void processRequest()
     {
-       if(intQ != null) //for Queue
-       {
-           if(intQ.isEmpty()) {
-               JOptionPane.showMessageDialog(null, "Queue is Empty!!");
-               return;  //EXIT
-           }
-           JOptionPane.showMessageDialog(null,"Value Dequeue from Queue is:"+intQ.dequeue());
-       }
-       else{    //for Stack
-           if(intSt.isEmpty()) {
-               JOptionPane.showMessageDialog(null, "Stack is Empty!!");
-               return;  //EXIT
-           }
-           JOptionPane.showMessageDialog(null,"Value Pop from Stack is:"+intSt.pop());
-       }
+        String action = (intQ == null ? "Pop":"Dequeue");
+        String type = (intQ == null ? "Stack":"Queue");
+        String mssg = String.format("Value %s from %s is: ", action, type);
+        Integer add = (type == "Queue" ? intQ.dequeue():intSt.pop());
+
+        if(add == null)
+            JOptionPane.showMessageDialog(null,String.format("%s is Empty!!!",type));
+        else
+            JOptionPane.showMessageDialog(null,mssg+" " + add);
     }
 }
