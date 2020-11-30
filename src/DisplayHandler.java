@@ -29,6 +29,6 @@ public class DisplayHandler extends GeneralHandler
      */
     public void processRequest()
     {
-        JOptionPane.showMessageDialog(null,String.format("%s contents is: %s" ,(intQ!=null? "Queue": "Stack") ,(intQ!=null? intQ.toString():intSt.toString())));
+        JOptionPane.showMessageDialog(null,String.format("%s contents is: %s" ,(intQ!=null? "Queue": "Stack") ,(intQ!=null? intQ:intSt)));
     }
 }
