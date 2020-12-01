@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 import java.lang.*;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class Manager
 {
 	private Queue<Integer> q;
 	private Stack<Integer> st;
+	private IntQueueStackHandler handlers [];
 
 	//Initializing an array on definition.
 	//This implicitly performs new on the array to allocate space for the array
@@ -22,21 +24,40 @@ public class Manager
 	 */
 	public Manager()
 	{
-		st = new Stack();
-		q = new Queue();
-		
+		st = new Stack<>();
+		q = new Queue<>();
+		initHandlers();
 		displayMenu();
 	}
 
 	/**
+	 * private method to init the handlers array and to allocate the
+	 * corresponding menu object to each appropriate cell
+	 */
+	private void initHandlers(){
+		handlers = new IntQueueStackHandler[menuOptions.length];
+
+		handlers[0] = new EnqueuePushHandler(q);
+		handlers[1] = new DequeuePopHandler(q);
+		handlers[2] = new DisplayHandler(q);
+		handlers[3] = new EnqueuePushHandler(st);
+		handlers[4] = new DequeuePopHandler(st);
+		handlers[5] = new DisplayHandler(st);
+		handlers[6] = new ExitHandler();
+	}
+
+
+
+	/**
 	 * displays and handles the user choices interactively.
+	 * using the handlers array.
 	 */
 	private void displayMenu()
 	{
 		Scanner sc = new Scanner(System.in);
 		int input = 1;
 
-		while(input != menuOptions.length)
+		while(true)
 		{
 			System.out.println("Please Enter your choice:");
 
@@ -46,40 +67,10 @@ public class Manager
 				System.out.println(str);
 
 			input = sc.nextInt();
-			switch(input)
-			{
-			case 1:
-				System.out.println("Please Enter a number:");
-				q.enqueue(sc.nextInt());
-				break;
-
-			case 2:
-				System.out.println("Dequeued: " + q.dequeue());
-				break;
-
-			case 3:
-				System.out.println("Queue Contents:" + q);
-				break;
-
-			case 4:
-				System.out.println("Please Enter a number:");
-				st.push(sc.nextInt());
-				break;
-
-			case 5:
-				System.out.println("Popped: " + st.pop());
-				break;
-
-			case 6:
-				System.out.println("Stack Contents:" + st);
-				break;
-
-			case 7:
-				break;
-
-			default:
-				System.out.println(input + " is an invalid choice! Please try again.");
-			}
+			if(input < 0 && input > 7)
+				JOptionPane.showMessageDialog(null, input +"invalid choice please try again", "Massage",JOptionPane.ERROR_MESSAGE);
+			else
+				handlers[input-1].processRequest();
 		}
 	}
 	
@@ -90,8 +81,7 @@ public class Manager
 	 */
 	public static void main (String[] args)
 	{
-		Manager mngr = new Manager();
-		mngr.displayMenu();
+		Manager manager = new Manager();
 	}
 }
 	
